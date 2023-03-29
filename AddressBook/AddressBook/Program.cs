@@ -6,9 +6,9 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-            //UC2 Abilty to add new contact to address Book
+            //UC3 Abilty to edit  existing contact person using their name
 
-          
+            Contacts a = new Contacts();
             Console.WriteLine("Welcome to address book program");
             while (true)
             {
@@ -16,15 +16,14 @@ namespace AddressBook
                 Console.WriteLine("1.Add Contact \n 2.Edit Contact \n 3.Delete Contact \n 4.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
 
-
                 switch (choice)
                 {
-                    case 1:
-                        AddNewContact a = new AddNewContact();
-                        a.AddContact();
 
+                    case 1:
+                        a.AddContact();
                         break;
                     case 2:
+                        a.Edit();
                         break;
                     case 3:
                         break;
