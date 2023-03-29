@@ -40,6 +40,37 @@ namespace AddressBook
 
             Display();
         }
+        public void Delete()
+        {
+            int index = 0;
+            bool isFound = false;
+            Console.WriteLine("Enter First Name to edit:");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter Last Name to edit:");
+            string lastName = Console.ReadLine();
+
+            foreach (Person person in this.list)
+            {
+                if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
+                {
+                    isFound = true;
+                    break;
+                }
+                index++;
+            }
+            if (isFound == true)
+            {
+                list.RemoveAt(index);
+                Console.WriteLine("Contact deleted...");
+                Display();
+            }
+            else
+            {
+                Console.WriteLine("Person doesn't exist.");
+            }
+
+        }
+
         public void Display()
         {
             foreach (Person person in list)
@@ -48,7 +79,6 @@ namespace AddressBook
                 Console.WriteLine("List Count:" + list.Count);
             }
         }
-
         public void Edit()
         {
             int index = 0;
@@ -65,10 +95,8 @@ namespace AddressBook
                     isFound = true;
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("Person doesn't exist.");
-                }
+
+
                 index++;
             }
             if (isFound == true)
@@ -81,6 +109,7 @@ namespace AddressBook
                     switch (option)
                     {
                         case 1:
+                            Console.WriteLine("Enter new Address:");
                             list[index].Address = Console.ReadLine();
                             break;
                         case 2:
@@ -99,7 +128,8 @@ namespace AddressBook
                             Console.WriteLine("Enter new Phone Number:");
                             list[index].PhoneNumber = Console.ReadLine();
                             break;
-                        case 6: break;
+                        case 6:
+                            break;
                     }
                     if (option == 6)
                     {
@@ -108,6 +138,15 @@ namespace AddressBook
                 }
                 Display();
             }
+            else
+            {
+                Console.WriteLine("Person doesn't exist.");
+            }
         }
     }
 }
+
+
+
+
+                           

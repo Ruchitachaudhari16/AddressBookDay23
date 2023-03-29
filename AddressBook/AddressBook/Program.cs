@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace AddressBook
 {
@@ -6,7 +7,7 @@ namespace AddressBook
     {
         static void Main(string[] args)
         {
-            //UC3 Abilty to edit  existing contact person using their name
+            //UC4 Ability to delete aperson using person's name - Use Console to delete a person
 
             Contacts a = new Contacts();
             Console.WriteLine("Welcome to address book program");
@@ -26,7 +27,9 @@ namespace AddressBook
                         a.Edit();
                         break;
                     case 3:
+                        a.Delete();
                         break;
+                       
                     case 4:
                         break;
                 }
